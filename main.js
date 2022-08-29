@@ -12,17 +12,10 @@ function btnLikes() {
       e.preventDefault();
       if (e.target.innerHTML == EMPTY_HEART) {
         mimicServerCall("")
-          .then(function (resp) {
+          .then(function () {
             e.target.innerHTML = FULL_HEART;
             e.target.classList.add("activated-heart");
           })
-          .catch(function (error) {
-            let modal = document.querySelector("#modal");
-            modal.classList.remove("hidden");
-            modal.innerText = "Random server error. Try again.";
-            setTimeout(() => {
-              modal.classList.add("hidden");}, 3000);
-          });
       } else {
         e.target.innerHTML = EMPTY_HEART;
         e.target.classList.remove("activated-heart");
