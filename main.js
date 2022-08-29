@@ -16,6 +16,14 @@ function btnLikes() {
             e.target.innerHTML = FULL_HEART;
             e.target.classList.add("activated-heart");
           })
+          .catch(function () {
+            let modal = document.querySelector("#modal");
+            modal.classList.remove("hidden");
+            modal.innerText = "Error";
+            setTimeout(() => {
+              modal.classList.add("hidden");
+            }, 3000);
+          });
       } else {
         e.target.innerHTML = EMPTY_HEART;
         e.target.classList.remove("activated-heart");
